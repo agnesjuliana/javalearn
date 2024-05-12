@@ -1,9 +1,9 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\ArtikelTerbit;
+use App\Models\ArtikelTerbit;
 
 class Artikel extends Model
 {
