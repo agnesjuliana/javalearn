@@ -102,7 +102,9 @@
                         <div class="col-lg-6 col-md-6 wow zoomIn" data-wow-delay="0.1s">
                             <a class="position-relative d-block overflow-hidden"
                                 href="#">
-                                <img class="img-fluid" src="{{ $article->image }}" alt="">
+                                {{-- <img class="img-fluid" src="{{ asset('landing-asset\img\budaya1.jpg') }}" alt=""> --}}
+
+                                <img class="img-fluid" src="{{ asset('landing-asset\img\/' . $loop->iteration) . '.jpg' }}" alt="">
                                 <div class="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">
                                     {{ $article->jumlah_like }}</div>
                                 <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">
