@@ -23,9 +23,9 @@ class LoginController
         if (Auth::attempt($credentials)) {
 
             if(Auth::user()->role == 'ADMIN') {
-                return redirect()->intended('dashboard/admin');
+                return redirect()->intended('dashboard/admin/article');
             } else if(Auth::user()->role == 'USER') {
-                return redirect()->intended('dashboard/user');
+                return redirect()->intended('dashboard/user/article');
             }
         }
 

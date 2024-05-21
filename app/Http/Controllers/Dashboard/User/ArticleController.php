@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard\User;
 
 use Illuminate\Http\Request;
 use App\Models\Artikel;
+use App\Models\ArtikelTinjau;
 
 class ArticleController
 {
@@ -35,6 +36,13 @@ class ArticleController
             'tanggal_pembuatan' => now(),
             'status' => 'Draft',
             'jumlah_like' => 0
+        ]);
+
+        ArtikelTinjau::create([
+            'id_artikel' => $artikel->id,
+            'status' => 'pending',
+            'reviewer' => null,
+            'komentar' => null
         ]);
 
         // Redirect to artikel index page with success message

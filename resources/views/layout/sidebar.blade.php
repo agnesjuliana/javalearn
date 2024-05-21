@@ -12,25 +12,48 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
 
-    <!-- Heading -->
-    <div class="sidebar-heading">
-        User Dashboard
-    </div>
-
-    <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#collapseTwo" data-toggle="collapse" data-target="#collapseTwo"
-            aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-book"></i>
-            <span>My Article</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{ route('dashboard.user.article.index') }}">List Article</a>
-                <a class="collapse-item" href="{{ route('dashboard.user.article.create') }}">Create Article</a>
-            </div>
+    {{-- if auth user --}}
+    @if (Auth::user()->role == 'USER')
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            User Dashboard
         </div>
-    </li>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#collapseTwo" data-toggle="collapse" data-target="#collapseTwo"
+                aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-book"></i>
+                <span>My Article</span>
+            </a>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="{{ route('dashboard.user.article.index') }}">List Article</a>
+                    <a class="collapse-item" href="{{ route('dashboard.user.article.create') }}">Create Article</a>
+                </div>
+            </div>
+        </li>
+    @else
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Admin Dashboard
+        </div>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#collapseTwo" data-toggle="collapse" data-target="#collapseTwo"
+                aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-book"></i>
+                <span>Article</span>
+            </a>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="{{ route('dashboard.admin.article.index') }}">Review Article</a>
+                    <a class="collapse-item" href="{{ route('dashboard.admin.article.publish.index') }}">Published Article</a>
+                </div>
+            </div>
+        </li>
+    @endif
 
     <!-- Divider -->
     <hr class="sidebar-divider">

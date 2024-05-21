@@ -25,11 +25,18 @@ Route::middleware('auth')->group(function () {
         Route::put('/article/{id}', [ArticleController::class, 'update'])->name('article.update');
         Route::delete('/article/{id}', [ArticleController::class, 'destroy'])->name('article.destroy');
     });
-    // Route::get('dashboard/user/article', [ArticleController::class, 'index'])->name('dashboard.user.article.index');
-    // Route::get('dashboard/user/article/create', [App\Http\Controllers\Dashboard\User\ArticleController::class, 'create'])->name('dashboard.user.article.create');
-    // Route::post('dashboard/user/article', [App\Http\Controllers\Dashboard\User\ArticleController::class, 'store'])->name('dashboard.user.article.store');
-    // Route::get('dashboard/user/article/{id}', [App\Http\Controllers\Dashboard\User\ArticleController::class, 'show'])->name('dashboard.user.article.show');
-    // Route::get('dashboard/user/article/{id}/edit', [App\Http\Controllers\Dashboard\User\ArticleController::class, 'edit'])->name('dashboard.user.article.edit');
-    // Route::put('dashboard/user/article/{id}', [App\Http\Controllers\Dashboard\User\ArticleController::class, 'update'])->name('dashboard.user.article.update');
-    // Route::delete('dashboard/user/article/{id}', [App\Http\Controllers\Dashboard\User\ArticleController::class, 'destroy'])->name('dashboard.user.article.destroy');
+
+    Route::prefix('dashboard/admin')->name('dashboard.admin.')->group(function () {
+        Route::get('/article', [App\Http\Controllers\Dashboard\Admin\ReviewController::class, 'index'])->name('article.index');
+        Route::put('/article/{id}', [App\Http\Controllers\Dashboard\Admin\ReviewController::class, 'update'])->name('article.update');
+        
+        Route::get('/article/terbit', [App\Http\Controllers\Dashboard\Admin\PublishController::class, 'index'])->name('article.publish.index');
+        Route::post('/article/terbit', [App\Http\Controllers\Dashboard\Admin\PublishController::class, 'store'])->name('article.publish');
+        Route::delete('/article/terbit/{id}', [App\Http\Controllers\Dashboard\Admin\PublishController::class, 'destroy'])->name('article.unpublish');
+
+        // Route::get('/article/{article_id}', [App\Http\Controllers\Dashboard\Admin\ArticleController::class, 'show'])->name('article.show');
+        // Route::put('/article/{id}', [App\Http\Controllers\Dashboard\Admin\ArticleController::class, 'update'])->name('article.update');
+    });
+
+
 });
