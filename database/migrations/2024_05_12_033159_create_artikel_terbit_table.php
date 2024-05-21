@@ -15,7 +15,7 @@ class CreateArtikelTerbitTable extends Migration
             $table->string('penerbit', 100);
             $table->timestamp('tanggal_terbit')->default(DB::raw('CURRENT_TIMESTAMP'));
 
-            $table->foreign('id_artikel')->references('id')->on('artikel');
+            $table->foreign('id_artikel')->references('id')->on('artikel')->onDelete('cascade');
         });
     }
 
