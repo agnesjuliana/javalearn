@@ -24,7 +24,7 @@
 
                     <a href="#" class="nav-item nav-link">Contact</a>
                 </div>
-                <a href="login/login.html" class="btn btn-primary rounded-pill py-2 px-4">Sign in</a>
+                <a href={{ route('login') }} class="btn btn-primary rounded-pill py-2 px-4">Sign in</a>
             </div>
         </nav>
 

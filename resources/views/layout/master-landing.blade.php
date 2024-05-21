@@ -27,7 +27,8 @@
     <!-- Libraries Stylesheet -->
     <link href="{{ asset('landing-asset/lib/animate/animate.min.css') }}" rel="stylesheet">
     <link href="{{ asset('landing-asset/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('landing-asset/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('landing-asset/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css') }}"
+        rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{ asset('landing-asset/css/bootstrap.min.css') }}" rel="stylesheet">
