@@ -14,10 +14,10 @@ class CreateArtikelTinjauTable extends Migration
             $table->unsignedInteger('id_artikel');
             $table->timestamp('tanggal_tinjau')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
-            $table->string('reviewer', 100);
-            $table->text('komentar');
+            $table->string('reviewer', 100)->nullable();
+            $table->text('komentar')->nullable();
 
-            $table->foreign('id_artikel')->references('id_artikel')->on('artikel');
+            $table->foreign('id_artikel')->references('id')->on('artikel');
         });
     }
 

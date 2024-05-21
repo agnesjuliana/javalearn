@@ -10,7 +10,7 @@ class CreateArtikelTable extends Migration
     public function up()
     {
         Schema::create('artikel', function (Blueprint $table) {
-            $table->increments('id_artikel');
+            $table->increments('id');
             $table->string('judul', 100)->nullable();
             $table->string('kategori', 50)->nullable();
             $table->text('konten')->nullable();

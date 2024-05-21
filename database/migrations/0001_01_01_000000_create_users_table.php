@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('email')->unique();
             $table->string('password');
+            $table->enum('role', ['ADMIN', 'USER'])->default('user');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -36,9 +37,8 @@ return new class extends Migration
         });
 
         DB::table('users')->insert([
-            ['email' => 'admin', 'password' => 'admin'],
-            ['email' => 'arsyad@gmail.com', 'password' => '123456'],
-            ['email' => 'admin@gmail.com', 'password' => 'admin'],
+            ['email' => 'admin@gmail.com', 'password' => '123123'],
+            ['email' => 'user@gmail.com', 'password' => '123123'],
         ]);
     }
 

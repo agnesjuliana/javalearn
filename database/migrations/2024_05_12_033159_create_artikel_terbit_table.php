@@ -10,12 +10,12 @@ class CreateArtikelTerbitTable extends Migration
     public function up()
     {
         Schema::create('artikel_terbit', function (Blueprint $table) {
-            $table->increments('id_terbit');
+            $table->increments('id');
             $table->unsignedInteger('id_artikel');
             $table->string('penerbit', 100);
             $table->timestamp('tanggal_terbit')->default(DB::raw('CURRENT_TIMESTAMP'));
 
-            $table->foreign('id_artikel')->references('id_artikel')->on('artikel');
+            $table->foreign('id_artikel')->references('id')->on('artikel');
         });
     }
 
