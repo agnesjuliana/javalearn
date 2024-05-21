@@ -9,7 +9,7 @@ class LandingWelcomeController
 {
     public function index()
     {
-        $articles = Artikel::where('status', 'published')->limit(5)->get();
+        $articles = Artikel::where('status', 'published')->limit(6)->get();
         return view('landing.welcome', ['articles' => $articles]);
     }
 }
