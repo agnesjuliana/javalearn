@@ -10,7 +10,10 @@ class ArticleController
 {
     public function index()
     {
-        $artikels = Artikel::all();
+        $artikels = Artikel::join('artikel_tinjau', 'artikel.id', '=', 'artikel_tinjau.id_artikel')
+            ->select('artikel.*', 'artikel_tinjau.id', 'artikel_tinjau.id_artikel', 'artikel_tinjau.status as status_tinjau', 'artikel_tinjau.reviewer', 'artikel_tinjau.komentar')
+            ->get();
+        
         return view('dashboard.user.list-article', compact('artikels'));
     }
 

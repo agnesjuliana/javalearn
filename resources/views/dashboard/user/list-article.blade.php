@@ -39,11 +39,13 @@
                                     <td>{{ $artikel->kategori }}</td>
                                     <td>{{ $artikel->tanggal_pembuatan }}</td>
                                     <td>
-                                        @if ($artikel->status == 'Published')
-                                            <span class="badge badge-success">Published</span>
-                                        @elseif ($artikel->status == 'Review')
+                                        @if ($artikel->status == 'published')
+                                            <span class="badge badge-primary">Published</span>
+                                        @elseif ($artikel->status_tinjau == 'approved')
+                                            <span class="badge badge-success">Approved - Waiting Publish</span>
+                                        @elseif ($artikel->status_tinjau == 'rejected')
                                             <span class="badge badge-warning">Review</span>
-                                        @else
+                                        @elseif ($artikel->status == 'draft')
                                             <span class="badge badge-secondary">Draft</span>
                                         @endif
                                     </td>
